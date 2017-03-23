@@ -1,0 +1,13 @@
+//.problems {
+//    margin: 2em 5em 5em 5em;
+//}
+
+.problems li {
+    margin-top: 0.2em;
+    padding: 1em;
+    background: #D4DEE4;
+}
+
+.problems a:hover {
+    text-decoration: underline;
+}

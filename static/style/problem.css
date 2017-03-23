@@ -1,0 +1,19 @@
+a {
+    color: blue;
+    float: right;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#submit {
+    padding: 0.5em;
+    font-size: 1.4em;
+    background-color: #D3ECF4;
+}
+
+#code {
+    width: 100%;
+    height: 20em;
+}

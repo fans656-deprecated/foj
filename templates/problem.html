@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/problem.css') }}"/>
+<script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+<script src="{{ url_for('static', filename='js/problem.js') }}"></script>
+{% endblock %}
+{% block content %}
+<div id="problem">
+    <a id="edit" href="edit-problem/{{ problem.url_name }}">Edit</a>
+    <h1 id="title" data-pid="{{ problem.pid }}">{{ problem.title }}</h1>
+    <pre id="desc">{{ problem.desc }}</pre>
+    <select id="lang" name="lang">
+        <option value="python">Python 2.7.10</option>
+        <option value="cpp">C++ 11</option>
+    </select>
+    <textarea id="code"></textarea>
+    <a id="submit" href="/submit-code">Submit</a>
+</div>
+{% endblock %}

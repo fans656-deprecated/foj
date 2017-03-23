@@ -1,0 +1,41 @@
+body {
+    font-family: "Arial";
+    margin: 0;
+    background-color: #eee;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: #222;
+}
+
+.nav ul {
+    background-color: #222;
+}
+
+.nav li {
+    display: inline;
+    float: left;
+}
+
+.nav a {
+    display: block;
+    padding: 1.5em;
+    color: #aaa;
+}
+
+.nav a:hover {
+    background-color: #333;
+}
+
+.content {
+    width: 70%;
+    margin: 2em auto 0 auto;
+}
