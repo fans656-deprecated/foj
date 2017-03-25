@@ -7,7 +7,7 @@
 {% endblock %}
 {% block content %}
 <div id="problem">
-    <a id="edit" href="edit-problem/{{ problem.url_name }}">Edit</a>
+    <a id="edit" href="/edit-problem/{{ problem.url_name }}">Edit</a>
     <h1 id="title" data-pid="{{ problem.pid }}">{{ problem.title }}</h1>
     <pre id="desc">{{ problem.desc }}</pre>
     <select id="lang" name="lang">

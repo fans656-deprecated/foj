@@ -19,9 +19,9 @@ $(function() {
         $.post('/submit-code', {
             pid: $('#title').attr('data-pid'),
             lang: $('#lang').val(),
-            code: $('#code').text()
+            code: $('#code').val()
         }).done(function(data) {
-            alert(data);
+            console.log(data);
         });
     });
 });

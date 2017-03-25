@@ -19,17 +19,31 @@ def problem(url_name):
 
 @app.route('/add-problem')
 def add_problem():
-    return render_template('add_problem.html', problem_id=get_new_problem_id())
+    p = Problem(get_new_problem_id())
+    return render_template('edit_problem.html', problem=p)
+
+@app.route('/edit-problem/<url_name>')
+def edit_problem(url_name):
+    return render_template('edit_problem.html', problem=get_problem(url_name))
 
 @app.route('/submit-problem', methods=['POST'])
 def submit_problem():
     form = request.form
-    p = Problem(form['title'],
+    pid = form['problem_id']
+    p = Problem(pid,
+                title=form['title'],
                 desc=form['desc'],
-                testcases=form['testcases'],
+                testcode=form['testcode'],
                 pid=get_new_problem_id())
     db, c = get_db_cursor()
-    c.execute('insert into problems values (?, ?, ?, ?, ?)', p.as_tuple())
+    c.execute('select count(*) from problems where id = ?', (pid,))
+    if c.fetchone():
+        raise Exception('todo')
+        c.execute('''
+            update problems set title = title,
+                  ''')
+    else:
+        c.execute('insert into problems values (?, ?, ?, ?, ?)', p.as_tuple())
     db.commit()
     return 'ok'
 
@@ -43,7 +57,6 @@ def submit_code():
         return str(sid)
     except RuntimeError as e:
         return e.message
-    print 'oops'
 
 @app.route('/code-for')
 def code_for():
