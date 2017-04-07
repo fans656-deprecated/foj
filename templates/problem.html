@@ -2,7 +2,6 @@
 {% block head %}
 {{ super() }}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/problem.css') }}"/>
-<script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
 <script src="{{ url_for('static', filename='js/problem.js') }}"></script>
 {% endblock %}
 {% block content %}
@@ -11,10 +10,25 @@
     <h1 id="title" data-pid="{{ problem.pid }}">{{ problem.title }}</h1>
     <pre id="desc">{{ problem.desc }}</pre>
     <select id="lang" name="lang">
-        <option value="python">Python 2.7.10</option>
-        <option value="cpp">C++ 11</option>
+        {% for lang in problem.langs %}
+        <option value="{{lang.id}}">{{lang.name}}</option>
+        {% endfor %}
     </select>
+    <a class="code-manipulator" id="reset-snippet" href="#reset-to-default-code">Reset</a>
+    <a class="code-manipulator" id="use-last-submission" href="#last-submission-code">Last</a>
     <textarea id="code"></textarea>
     <a id="submit" href="/submit-code">Submit</a>
+    <p class="submission-state" id="submission-state"></p>
+    <pre class="submission-state" id="submission-info"></pre>
+</div>
+<div class="hidden snippets">
+    {% for lang, code in problem.snippets.items() %}
+    <pre class="snippet" data-lang="{{lang}}">{{code}}</pre>
+    {% endfor %}
+</div>
+<div class="hidden last-submission-codes">
+    {% for lang, code in problem.last_submission_codes.items() %}
+    <pre class="last-submission-codes" data-lang="{{lang}}">{{code}}</pre>
+    {% endfor %}
 </div>
 {% endblock %}

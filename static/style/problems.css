@@ -1,0 +1,26 @@
+table {
+    margin-top: 2em;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    color: #999;
+    background-color: #ddd;
+    text-align: left;
+}
+
+th, td {
+    border-bottom: 1px solid #ddd;
+    padding: 0.5em;
+}
+
+.id {
+    width: 3em;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+

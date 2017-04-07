@@ -1,19 +1,45 @@
 a {
-    color: blue;
+    color: #999;
     float: right;
 }
 
-a:hover {
-    text-decoration: underline;
-}
-
 #submit {
-    padding: 0.5em;
+    padding: 0.5em 0.8em 0.5em 0.8em;
     font-size: 1.4em;
-    background-color: #D3ECF4;
+    background-color: #222;
+    color: #aaa;
+    border-radius: 0.5em;
+    margin-top: 0.5em;
 }
 
 #code {
     width: 100%;
     height: 20em;
+    padding: 0.5em;
+}
+
+#submission-state {
+    font-family: Arial;
+    font-size: 1.4em;
+    margin-bottom: 0;
+    color: #D72929;
+}
+
+#submission-state.accepted {
+    color: #1DA419;
+}
+
+#submission-state.pending {
+    color: grey;
+}
+
+.code-manipulator {
+    margin-left: 0.5em;
+    float: none;
+    color: #999;
+    font-size: 0.8em;
+}
+
+.hidden {
+    display: none;
 }

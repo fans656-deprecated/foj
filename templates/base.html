@@ -3,14 +3,16 @@
 <head>
 {% block head %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/base.css') }}"/>
+<script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
 {% endblock %}
 </head>
 <body>
 <div class="nav">
     <ul>
-        <li><a href="/">Problems</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/problems">Problems</a></li>
         <li><a href="/categories">Categories</a></li>
-        <li><a href="/add-problem">Add Problem</a></li>
+        <li><a href="/new-problem">New Problem</a></li>
     </ul>
 </div>
 <div class="content">

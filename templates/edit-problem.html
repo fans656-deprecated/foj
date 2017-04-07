@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/edit-problem.css') }}"/>
+<script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+<script src="{{ url_for('static', filename='js/edit-problem.js') }}"></script>
+{% endblock %}
+{% block content %}
+<form>
+    <p class="pid"><a href="/problem/{{ problem.url_name }}">Problem <span id="pid">{{ problem.pid }}</span></a></p>
+    <table>
+        <tr>
+            <td><label for="title">Title</label></td>
+            <td><input type="text" id="title" name="title" value="{{ problem.title }}"></td>
+        </tr>
+        <tr>
+            <td><label for="desc">Description</label></td>
+            <td><textarea id="desc" name="desc">{{ problem.desc }}</textarea></td>
+        </tr>
+        {% for lang in problem.langs %}
+        <tr>
+            <td><label class="lang" id="snippet-{{lang.id}}">Snippet<br>{{ lang.name }}</label></td>
+            <td><textarea class="snippet" data-lang="{{lang.id}}">{{ problem.snippets[lang.id] }}</textarea></td>
+        </tr>
+        <tr>
+            <td><label class="lang" id="test-{{lang.id}}">Test<br>{{ lang.name }}</label></td>
+            <td><textarea class="testcode" data-lang="{{lang.id}}">{{ problem.testcodes[lang.id] }}</textarea></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a id="submit" href="/submit-problem">Submit</a>
+</form>
+{% endblock %}

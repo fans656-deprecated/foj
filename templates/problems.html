@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/problems.css') }}"/>
+{% endblock %}
+{% block content %}
+<div class="problems">
+    <table>
+        <thead>
+            <th class="id">ID</th>
+            <th class="title">Title</th>
+        </thead>
+        {% for problem in problems %}
+        <tr>
+            <td class="pid">{{ problem.pid }}</td>
+            <td class="title"><a href="problem/{{ problem.url_name }}">{{ problem.title }}</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
