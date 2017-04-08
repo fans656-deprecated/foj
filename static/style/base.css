@@ -103,3 +103,8 @@ th, td {
 .main.button {
     float: right;
 }
+
+.columns * {
+    display: inline-block;
+    margin-right: 2em;
+}

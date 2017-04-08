@@ -1,0 +1,60 @@
+.content {
+    width: 80%;
+    margin-top: 1.5em;
+}
+
+.sticky-notes {
+    margin-bottom: 2em;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: flex-start;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.problem {
+    display: block;
+}
+
+.tag {
+    background-color: #eee;
+    display: inline-block;
+    margin: 0.4em;
+    box-shadow: 2px 2px 10px 0px #bbb;
+    float: left;
+    min-width: 8em;
+    flex-grow: 1;
+    padding-bottom: 0.5em;
+}
+
+.title {
+    width: 100%;
+    display: inline-block;
+    padding: 0.5em;
+    padding-bottom: 0.2em;
+    color: #888;
+    font-size: 1.5em;
+    box-sizing: border-box;
+}
+
+.title:hover {
+    color: #222;
+}
+
+.problem {
+    padding: 0.2em 2em 0.2em 1em;
+    font-size: 0.8em;
+}
+
+.problem:hover {
+    background-color: #333;
+    color: #ccc;
+}
+
+.problem:last-child {
+    margin-bottom: 1em;
+}

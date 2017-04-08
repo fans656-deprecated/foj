@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/categories.css') }}"/>
+{% endblock %}
+{% block content %}
+<div class="sticky-notes">
+    {% for category in categories %}
+    <div class="tag" data-tag="{{category.tag}}">
+        <a class="title" href="/category/{{category.tag}}">{{category.tag_repr}}</a>
+        <div class="problems">
+        {% for problem in category.problems %}
+        <a class="problem" href="/problem/{{problem.url_name}}">{{problem.title}}</a>
+        {% endfor %}
+        {% if category.more %}
+        <a class="problem" href="/category/{{category.tag}}">More...</a>
+        {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

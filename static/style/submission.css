@@ -1,8 +1,3 @@
-.columns * {
-    display: inline-block;
-    margin-right: 2em;
-}
-
 .details {
     font-size: 0.8em;
 }

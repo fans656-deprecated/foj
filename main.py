@@ -14,6 +14,7 @@ from submission import (
     get_submissions,
     get_submission_by_sid,
 )
+from category import get_categories
 from db import get_cursor
 
 from flask import (
@@ -40,7 +41,7 @@ def problems():
 
 @app.route('/categories')
 def categories():
-    return 'TODO'
+    return render_template('categories.html', categories=get_categories())
 
 @app.route('/submissions')
 def submissions():

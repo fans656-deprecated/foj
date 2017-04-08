@@ -82,26 +82,35 @@ class Problem(object):
         self.snippets = {lang: '' for lang in self.langs}
 
     def submit(self, data):
+        pid = data.get('pid', None)
+        title = data.get('title', '')
+        tags = data.get('tags', '')
+        desc = data.get('desc', '')
+        snippets = data.get('snippets', [])
+        testcodes = data.get('testcodes', [])
         # validate
-        if not data['title']:
+        if pid is None:
+            raise ValueError('Invalid Problem ID')
+        if not title:
             raise ValueError('Title can not be empty')
-        if self.title != data['title']:
+        # check if title already used
+        if self.title != title:
             c = get_cursor()
-            c.execute('select rowid from problem where title=?',
-                      (data['title'],))
+            c.execute('select rowid from problem where title=?', (title,))
             r = c.fetchone()
             if r:
-                raise ValueError('Title "{}" already used by problem {}'.format(
-                    data['title'], r[0]))
+                raise ValueError(
+                    'Title "{}" already used by problem {}'.format(
+                        title, r[0]))
         # change
         if self.pid is None:
-            self.pid = data['pid']
-        self.title = data['title']
-        self.tags = filter(bool, [s.strip() for s in data['tags'].split(',')])
-        self.desc = data['desc']
+            self.pid = pid
+        self.title = title
+        self.tags = filter(bool, [s.strip() for s in tags.split(',')])
+        self.desc = desc
         self.url_name = title_to_urlname(self.title)
-        self.snippets = {v['lang']: v['code'] for v in data['snippets']}
-        self.testcodes = {v['lang']: v['code'] for v in data['testcodes']}
+        self.snippets = {v['lang']: v['code'] for v in snippets}
+        self.testcodes = {v['lang']: v['code'] for v in testcodes}
         # check if is new
         db, c = get_db_cursor()
         c.execute('select count(*) from problem where rowid=?', (self.pid,))

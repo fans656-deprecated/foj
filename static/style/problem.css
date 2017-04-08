@@ -33,6 +33,12 @@ a {
     font-size: 0.7em;
 }
 
+#tags a:hover {
+    background-color: #bbb;
+    color: #eee;
+    text-decoration: none;
+}
+
 #submission-state {
     font-family: Arial;
     font-size: 1.4em;
