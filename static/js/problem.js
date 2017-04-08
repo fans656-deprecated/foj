@@ -17,31 +17,27 @@ $(function() {
         $('.submission-state').text('');
         // submit
         var pid = $('#title').attr('data-pid');
+        var title = $('#title').text();
         var lang = $('#lang').val();
         var code = $('#code').val();
+        console.log('submit code: ' + title);
         $.post('/submit-code', {
             pid: pid,
+            title: title,
             lang: lang,
             code: code
         }).done(function(data) {
             data = JSON.parse(data);
             if (data['result'] == 'ok') {
-                var source = new EventSource('/submission-state/' + data['sid']);
+                var sid = data['sid'];
+                var source = new EventSource('/submission-state/' + sid);
                 source.onmessage = function(ev) {
                     console.log(ev.data);
                     var data = JSON.parse(ev.data);
                     var state = data['state'];
                     console.log('changing #submission-state to ' + data['state']);
-                    if (state == 'accepted') {
-                        $('#submission-state').addClass('accepted');
-                    } else {
-                        $('#submission-state').removeClass('accepted');
-                    }
-                    if (state == 'pending') {
-                        $('#submission-state').addClass('pending');
-                    } else {
-                        $('#submission-state').removeClass('pending');
-                    }
+                    $('#submission-state').attr('data-state', state);
+                    $('#submission-state').attr('href', '/submission/' + sid);
                     if (data['state'] != 'pending') {
                         ev.target.close();
                     }

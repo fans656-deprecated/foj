@@ -5,6 +5,7 @@ $(function() {
             data: JSON.stringify({
                 pid: $('#pid').text(),
                 title: $('#title').val(),
+                tags: $('#tags').val(),
                 desc: $('#desc').val(),
                 snippets: $('.snippet').map(function() {
                     var v = $(this);

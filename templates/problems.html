@@ -9,11 +9,15 @@
         <thead>
             <th class="id">ID</th>
             <th class="title">Title</th>
+            <th class="submissions">Submissions</th>
         </thead>
         {% for problem in problems %}
         <tr>
             <td class="pid">{{ problem.pid }}</td>
             <td class="title"><a href="problem/{{ problem.url_name }}">{{ problem.title }}</a></td>
+            <td class="acceptions-submissions"><a href="#">
+                    <span class="acceptions">{{ problem.n_acceptions }}</span>/<span class="submissions">{{  problem.n_submissions }}</span>
+            </a></td>
         </tr>
         {% endfor %}
     </table>

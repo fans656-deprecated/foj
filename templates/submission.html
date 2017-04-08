@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/submission.css') }}"/>
+{% endblock %}
+{% block content %}
+<div class="problems">
+    <h1><a href="/problem/{{ submission.problem.url_name }}">{{ submission.title }}</a></h1>
+    <div class="columns details">
+        <p>Status: <span class="submission-state" data-state="{{submission.state}}">{{ submission.state_repr }}</span></p>
+        <p><span>Datetime: {{ submission.ctime_repr }}</span></p>
+        <p class="lang">Language: <span>{{ submission.lang_repr }}</span></p>
+    </div>
+    <textarea class="code" readonly=true>{{ submission.code }}</textarea>
+    <a class="button" href="/problem/{{ submission.problem.url_name }}">Retry</a>
+    <pre>{{ submission.info }}</pre>
+</div>
+{% endblock %}

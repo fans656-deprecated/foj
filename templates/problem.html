@@ -6,20 +6,31 @@
 {% endblock %}
 {% block content %}
 <div id="problem">
-    <a id="edit" href="/edit-problem/{{ problem.url_name }}">Edit</a>
-    <h1 id="title" data-pid="{{ problem.pid }}">{{ problem.title }}</h1>
+    <div class="title">
+        <h1 id="title" data-pid="{{ problem.pid }}">{{ problem.title }}</h1>
+        <div id="tags">
+            {% for tag in problem.tags %}
+            <a href="/category/{{ tag }}">{{ tag }}</a>
+            {% endfor %}
+        </div>
+        <a id="edit" href="/edit-problem/{{ problem.url_name }}">Edit</a>
+    </div>
     <pre id="desc">{{ problem.desc }}</pre>
-    <select id="lang" name="lang">
-        {% for lang in problem.langs %}
-        <option value="{{lang.id}}">{{lang.name}}</option>
-        {% endfor %}
-    </select>
-    <a class="code-manipulator" id="reset-snippet" href="#reset-to-default-code">Reset</a>
-    <a class="code-manipulator" id="use-last-submission" href="#last-submission-code">Last</a>
-    <textarea id="code"></textarea>
-    <a id="submit" href="/submit-code">Submit</a>
-    <p class="submission-state" id="submission-state"></p>
-    <pre class="submission-state" id="submission-info"></pre>
+    <div class="code-manipulator container">
+        <select id="lang" name="lang">
+            {% for lang in problem.langs %}
+            <option value="{{lang.id}}">{{lang.name}}</option>
+            {% endfor %}
+        </select>
+        <a class="code-manipulator" id="reset-snippet" href="#reset-to-default-code">Reset</a>
+        <a class="code-manipulator" id="use-last-submission" href="#last-submission-code">Last</a>
+    </div>
+    <textarea class="code" id="code"></textarea>
+    <a class="main button" id="submit" href="/submit-code">Submit</a>
+    <div class="submission-detail container">
+        <p><a class="submission-state" data-state="" id="submission-state" href="#"></a></p>
+        <pre id="submission-info"></pre>
+    </div>
 </div>
 <div class="hidden snippets">
     {% for lang, code in problem.snippets.items() %}

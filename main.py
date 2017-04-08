@@ -5,7 +5,15 @@ from problem import (
     get_new_problem,
     state2name,
 )
-from runner import Controller, run, Failed
+from runner import (
+    Failed,
+    Controller,
+    run,
+)
+from submission import (
+    get_submissions,
+    get_submission_by_sid,
+)
 from db import get_cursor
 
 from flask import (
@@ -30,6 +38,19 @@ def problems():
     order_by = args.get('order_by', 'id')
     return render_template('problems.html', problems=get_problems(order_by))
 
+@app.route('/categories')
+def categories():
+    return 'TODO'
+
+@app.route('/submissions')
+def submissions():
+    return render_template('submissions.html', submissions=get_submissions())
+
+@app.route('/submission/<sid>')
+def submission(sid):
+    return render_template('submission.html',
+                           submission=get_submission_by_sid(sid))
+
 @app.route('/problem/<url_name>')
 def problem(url_name):
     p = get_problem_by_url_name(url_name)
@@ -47,6 +68,7 @@ def edit_problem(url_name):
 
 @app.route('/submit-problem', methods=['POST'])
 def submit_problem():
+    '''Create new problem or update existing problem'''
     r = json.loads(request.form['data'])
     p = get_problem_by_pid(r['pid'])
     try:
@@ -58,15 +80,18 @@ def submit_problem():
 
 @app.route('/new-problem')
 def new_problem():
-    return render_template('edit-problem.html', problem=get_new_problem())
+    return render_template('edit-problem.html',
+                           problem=get_new_problem(), is_new_problem=True)
 
 @app.route('/submit-code', methods=['POST'])
 def submit_code():
     pid = request.form['pid']
+    title = request.form['title']
     lang = request.form['lang']
     code = request.form['code']
+    print 'submit_code', title
     try:
-        sid = run(pid, lang, code)
+        sid = run(pid, title, lang, code)
         return json.dumps({
             'result': 'ok',
             'sid': sid,
@@ -78,6 +103,8 @@ def submit_code():
             'result': 'failed',
             'message': e.message,
         })
+    except Exception as e:
+        print e
 
 @app.route('/last-submission-code')
 def last_submission_code():

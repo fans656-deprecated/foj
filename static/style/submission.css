@@ -1,0 +1,20 @@
+.columns * {
+    display: inline-block;
+    margin-right: 2em;
+}
+
+.details {
+    font-size: 0.8em;
+}
+
+.button {
+    float: right;
+}
+
+//.columns *:last-child {
+//    float: right;
+//}
+
+//.submission-state {
+//    font-size: 1.5em;
+//}

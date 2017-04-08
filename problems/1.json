@@ -1,0 +1,23 @@
+{
+    "last_submission_codes": {
+        "cpp": "", 
+        "python2": "def a_plus_b(a, b):\n    pass"
+    }, 
+    "url_name": "a-plus-b", 
+    "testcodes": {
+        "cpp": "a_plus_b(3, 2);", 
+        "python2": "for x, y in (\n        (2, 3),\n        (0, -1),\n):\n    res = a_plus_b(x, y)\n    expect_res = x + y\n    if res != expect_res:\n        raise WrongAnswer((x, y), expect_res, res)\n               "
+    }, 
+    "title": "A plus B", 
+    "n_acceptions": 0, 
+    "tags": [
+        "test"
+    ], 
+    "pid": 1, 
+    "n_submissions": 0, 
+    "snippets": {
+        "cpp": "int a_plus_b(int a, int b) {\n    ;\n}", 
+        "python2": "def a_plus_b(a, b):\n    pass"
+    }, 
+    "desc": "Given two integers, return their sum.\nSample Input: 2 3\nSample Output: 5"
+}

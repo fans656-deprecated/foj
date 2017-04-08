@@ -49,19 +49,8 @@ input:read-only {
 }
 
 #submit {
-    margin: 0.5em auto 1em auto;
     display: block;
-    width: 4em;
     text-align: center;
-    background-color: #83DA9E;
-    font-size: 1.5em;
-    padding: 0.5em 1em 0.5em 1em;
-}
-#submit {
-    padding: 0.5em 0.8em 0.5em 0.8em;
-    font-size: 1.4em;
-    background-color: #222;
-    color: #aaa;
-    border-radius: 0.5em;
-    margin-top: 0.5em;
+    width: 4em;
+    margin: 0.5em auto 2em auto;
 }

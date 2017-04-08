@@ -7,11 +7,19 @@
 {% endblock %}
 {% block content %}
 <form>
+    {% if is_new_problem %}
+    <p class="pid"><a href="#">Problem <span id="pid">{{ problem.pid }}</span></a></p>
+    {% else %}
     <p class="pid"><a href="/problem/{{ problem.url_name }}">Problem <span id="pid">{{ problem.pid }}</span></a></p>
+    {% endif %}
     <table>
         <tr>
             <td><label for="title">Title</label></td>
             <td><input type="text" id="title" name="title" value="{{ problem.title }}"></td>
+        </tr>
+        <tr>
+            <td><label for="tags">Tags</label></td>
+            <td><input type="text" id="tags" name="tags" value="{{ problem.tags_repr }}"></td>
         </tr>
         <tr>
             <td><label for="desc">Description</label></td>
@@ -28,6 +36,6 @@
         </tr>
         {% endfor %}
     </table>
-    <a id="submit" href="/submit-problem">Submit</a>
+    <a class="main button" id="submit" href="/submit-problem">Submit</a>
 </form>
 {% endblock %}

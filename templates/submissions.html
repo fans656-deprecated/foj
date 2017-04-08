@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+<div class="problems">
+    <table>
+        <thead>
+            <th class="problem">Problem</th>
+            <th class="lang">Language</th>
+            <th class="ctime">Time</th>
+            <th class="state">Status</th>
+        </thead>
+        {% for submission in submissions %}
+        <tr>
+            <td><a class="problem" data-pid="{{ submission.pid }}" href="problem/{{ submission.problem.url_name }}">{{ submission.title }}</a></td>
+            <td><a class="lang" href="submission/{{ submission.sid }}">{{ submission.lang_repr }}</a></td>
+            <td><a class="ctime" href="submission/{{ submission.sid }}">{{ submission.ctime_repr }}</a></td>
+            <td><a class="submission-state" data-state="{{ submission.state }}" href="submission/{{ submission.sid }}">{{ submission.state_repr }}</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{
+    "last_submission_codes": {
+        "cpp": "", 
+        "python2": "def show_tree(Node root):\n    pass"
+    }, 
+    "url_name": "show-tree", 
+    "testcodes": {
+        "cpp": "", 
+        "python2": ""
+    }, 
+    "title": "Show tree", 
+    "n_acceptions": 0, 
+    "tags": [
+        "test", 
+        "tree"
+    ], 
+    "pid": 2, 
+    "n_submissions": 0, 
+    "snippets": {
+        "cpp": "", 
+        "python2": "def show_tree(root):\n    pass"
+    }, 
+    "desc": "Given a root node, output its indented tree structure."
+}

@@ -48,6 +48,7 @@ create table testcode (
 drop table if exists submission;
 create table submission (
     pid integer references problem(rowid),
+    title text,
     lang text,
     code text,
     ctime datetime,
@@ -62,41 +63,4 @@ create table user (
     register_time datetime,
     last_login datetime,
     state text
-);
-
-/***************************************************/
-
-insert into problem (title, url_name, desc) values (
-    "A + B",
-    "a-b",
-    "Given two integers, return their sum."
-    || char(10) ||
-    "Sample Input: 2 3"
-    || char(10) ||
-    "Sample Output: 5"
-);
-insert into snippet (pid, lang, code) values (
-    1,
-    "python2",
-    "def a_plus_b(a, b):"||char(10)||"    pass"
-);
-insert into snippet (pid, lang, code) values (
-    1,
-    "cpp",
-    "int a_plus_b(int a, int b) {"||char(10)||"    ;"||char(10)||"}"
-);
-insert into testcode (pid, lang, code) values (
-    1,
-    "python2",
-    "a_plus_b(3, 2)"
-);
-insert into testcode (pid, lang, code) values (
-    1,
-    "cpp",
-    "a_plus_b(3, 2);"
-);
-insert into problem (title, url_name, desc) values (
-    "Show tree",
-    "show-tree",
-    "Given a root node, output its indented tree structure."
 );
