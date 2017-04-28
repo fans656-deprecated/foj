@@ -1,19 +1,23 @@
-foj - fans656's personal Online Judge
+foj
 -------------------------------------
 
-### Usage:
+A personal web based [Online Judge][1] system.
+
+[1]:https://en.wikipedia.org/wiki/Online_judge
+
+### Usage
 
 Run `python main.py` to start the server, then you can access [http://localhost/][1] in your browser to use the OJ.
 
 [1]:http://localhost/
 
-### Dependencis:
+### Dependencis
     
     python 2.7
     flask
     pysqlite2 (optional)
 
-### Notice:
+### Notice
 
 This project is currently under development, so it may not be fully functional.
 
