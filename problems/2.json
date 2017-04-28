@@ -1,24 +1,23 @@
 {
     "last_submission_codes": {
         "cpp": "", 
-        "python2": "def show_tree(Node root):\n    pass"
+        "python2": "def show_tree(root):\n    pass"
     }, 
     "url_name": "show-tree", 
     "testcodes": {
-        "cpp": "", 
+        "cpp": "struct Node {\n    int val;\n    Node* left;\n    Node* right;\n    \n    Node(int v) : val(v), left(0), right(0) {}\n};\n\nstring show_tree(Node* root);\n\nvoid test() {\n    auto s = show_tree(0);\n    if (strip(s) != \"\") throw WrongAnswer(0, \"\", s);\n}\n", 
         "python2": ""
     }, 
     "title": "Show tree", 
     "n_acceptions": 0, 
     "tags": [
-        "test", 
         "tree"
     ], 
     "pid": 2, 
     "n_submissions": 0, 
     "snippets": {
-        "cpp": "", 
-        "python2": "def show_tree(root):\n    pass"
+        "cpp": "string show_tree(Node* root) {\n}", 
+        "python2": "def show_tree(root):\n    '''\n    Input: Node\n    Output: str\n    '''\n    pass"
     }, 
-    "desc": "Given a root node, output its indented tree structure."
+    "desc": "Given a root node, output its indented tree structure.\nEvery level of indentation should be 4 spaces.\nThe last line of output can either have or not have the newline character.\n\nSample Input:\n[1, 2, 3]\n\nSample Output:\n1\n    2\n    3\n\nSample Input:\n[1, None, 3, 4, 5]\n\nSample Output:\n1\n    3\n        4\n        5"
 }

@@ -1,16 +1,20 @@
 {
     "last_submission_codes": {}, 
-    "url_name": "hidjgnwtko", 
-    "testcodes": {}, 
-    "title": "hidjgnwtko", 
+    "url_name": "max-stack", 
+    "testcodes": {
+        "cpp": "", 
+        "python2": ""
+    }, 
+    "title": "Max Stack", 
     "n_acceptions": 0, 
     "tags": [
-        "backtracking", 
-        "queue", 
-        "array"
+        "stack"
     ], 
     "pid": 18, 
     "n_submissions": 0, 
-    "snippets": {}, 
+    "snippets": {
+        "cpp": "", 
+        "python2": ""
+    }, 
     "desc": ""
 }

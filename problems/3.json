@@ -1,11 +1,11 @@
 {
     "last_submission_codes": {
-        "cpp": "", 
-        "python2": ""
+        "cpp": "int binary_search(const vector<int>& a) {\n}", 
+        "python2": "def binary_search(a, x):\n    pass\n"
     }, 
     "url_name": "binary-search", 
     "testcodes": {
-        "cpp": "", 
+        "cpp": "#include <cstring>\n#include <cstdio>\n\nvoid test() {\n    auto f = fopen(\"t.txt\", \"w\");\n    const char* s = \"hello world\\n\";\n    fwrite(s, strlen(s), 1, f);\n}\n", 
         "python2": "def not_in_a(*b):\n    all(test(a, v) == -1 for v in b)\n\ndef in_a():\n    all(test(a, v) == i for i, v in enumerate(a))\n\ntest = Tester(binary_search)\n\ntest([], 0) == -1\n\ntest([1], 0) == -1\ntest([1], 1) == 0\ntest([1], 2) == -1\n\na = [1,2,3,4,5]\nnot_in_a(0, 6)\nin_a()\n\na = [1,2,3,4,5,6]\nnot_in_a(0, 7)\nin_a()\n\na = [1,3,5,7,9]\nnot_in_a(0,2,4,6,8,10)\nin_a()\n\na = [1,3,5,7]\nnot_in_a(0,2,4,6,8)\nin_a()\n\na = [2,2]\nnot_in_a(1,3)\nr = test(a, 2)\nres = {0,1}\nif r.res not in res:\n    r.wrong_answer(res)\n\na = [2,2,2]\nnot_in_a(1,3)\nr = test(a, 2)\nres = {0,1,2}\nif r.res not in res:\n    r.wrong_answer(res)"
     }, 
     "title": "Binary search", 
@@ -16,7 +16,7 @@
     "pid": 3, 
     "n_submissions": 0, 
     "snippets": {
-        "cpp": "", 
+        "cpp": "int binary_search(const vector<int>& a) {\n}", 
         "python2": "def binary_search(a, x):\n    pass\n"
     }, 
     "desc": "Given an sorted (non-decreasing) array of integers `a`, and a value `x`.\nReturn the index (0-based) of the occurrence of `x` in `a`, or `-1` if not found.\nIf there are multiple occurrences, you can return any of theirs' index.\n\nSample Input:\n[2, 2, 3, 4, 5] 4\n\nSample Output:\n3\n\nSample Input:\n[2, 2, 3, 4, 5] 1\n\nSample Output:\n-1\n"

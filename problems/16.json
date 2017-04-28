@@ -1,16 +1,21 @@
 {
     "last_submission_codes": {}, 
-    "url_name": "inqovezpcb", 
-    "testcodes": {}, 
-    "title": "inqovezpcb", 
+    "url_name": "product-of-array-except-self", 
+    "testcodes": {
+        "cpp": "", 
+        "python2": ""
+    }, 
+    "title": "Product of Array Except Self", 
     "n_acceptions": 0, 
     "tags": [
-        "backtracking", 
         "array", 
-        "dynamic programming"
+        "leetcode"
     ], 
     "pid": 16, 
     "n_submissions": 0, 
-    "snippets": {}, 
-    "desc": ""
+    "snippets": {
+        "cpp": "", 
+        "python2": ""
+    }, 
+    "desc": "https://leetcode.com/problems/product-of-array-except-self/#/description\nLeetcode 238"
 }

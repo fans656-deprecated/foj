@@ -1,16 +1,21 @@
 {
     "last_submission_codes": {}, 
-    "url_name": "btjzfeosqd", 
-    "testcodes": {}, 
-    "title": "btjzfeosqd", 
+    "url_name": "max-queue", 
+    "testcodes": {
+        "cpp": "", 
+        "python2": ""
+    }, 
+    "title": "Max Queue", 
     "n_acceptions": 0, 
     "tags": [
-        "iterative", 
-        "array", 
-        "dynamic programming"
+        "queue", 
+        "stack"
     ], 
     "pid": 17, 
     "n_submissions": 0, 
-    "snippets": {}, 
+    "snippets": {
+        "cpp": "", 
+        "python2": ""
+    }, 
     "desc": ""
 }

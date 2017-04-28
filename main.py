@@ -26,6 +26,7 @@ import os
 import json
 import time
 import logging
+import tempfile
 
 app = Flask(__name__)
 
@@ -161,4 +162,5 @@ if __name__ == '__main__':
     logging.basicConfig(format='%(asctime)-15s %(levelname)s %(message)s',
                         level=logging.DEBUG)
     controller = Controller()
+    tempfile.tempdir = 'runtime/temp/'
     app.run(host='localhost', port=80, threaded=True, debug=True)

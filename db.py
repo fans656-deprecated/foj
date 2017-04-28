@@ -1,4 +1,7 @@
-from pysqlite2 import dbapi2 as DB
+try:
+    from pysqlite2 import dbapi2 as DB
+except ImportError:
+    import sqlite3 as DB
 from flask import g
 
 import os

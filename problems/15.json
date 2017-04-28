@@ -1,16 +1,21 @@
 {
     "last_submission_codes": {}, 
-    "url_name": "xporuikadg", 
-    "testcodes": {}, 
-    "title": "xporuikadg", 
+    "url_name": "zigzag-conversion", 
+    "testcodes": {
+        "cpp": "", 
+        "python2": ""
+    }, 
+    "title": "ZigZag Conversion", 
     "n_acceptions": 0, 
     "tags": [
-        "array", 
-        "linked list", 
-        "stack"
+        "leetcode", 
+        "string"
     ], 
     "pid": 15, 
     "n_submissions": 0, 
-    "snippets": {}, 
-    "desc": ""
+    "snippets": {
+        "cpp": "", 
+        "python2": ""
+    }, 
+    "desc": "https://leetcode.com/problems/zigzag-conversion/#/description\nLeetcode 6"
 }

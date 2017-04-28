@@ -15,6 +15,7 @@ class Submission(object):
         self.lang = lang
         self.ctime = ctime
         self.code = code
+        self.testcode = None
         self.code_for_run = None
         self.state = state
         self._info = info
@@ -91,6 +92,7 @@ class Submission(object):
                 self.pid, self.lang
             ))
             raise Failed('No test code for problem {}'.format(self.pid))
+        self.testcode = testcode
         return '\n'.join((self.code, testcode))
 
     def set_result(self, res):
