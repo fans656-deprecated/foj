@@ -9,7 +9,12 @@ A personal web based [Online Judge][1] system.
 
 Run `python main.py` to start the server, then you can access [http://localhost/][1] in your browser to use the OJ.
 
+Or `python main.py 6560` to bind to port 6560 (default to 80). ([http://localhost:6560/][2])
+
+Or `python main.py 80 0.0.0.0` to enable Internet access.
+
 [1]:http://localhost/
+[2]:http://localhost:6560/
 
 ### Dependencis
     

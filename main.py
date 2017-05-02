@@ -1,3 +1,15 @@
+import os
+import json
+import time
+import logging
+import tempfile
+import argparse
+
+from flask import (
+    Flask, render_template, url_for, request, g, redirect,
+    Response,
+)
+
 from problem import (
     get_problems,
     get_problem_by_url_name,
@@ -16,17 +28,6 @@ from submission import (
 )
 from category import get_categories
 from db import get_cursor
-
-from flask import (
-    Flask, render_template, url_for, request, g, redirect,
-    Response,
-)
-
-import os
-import json
-import time
-import logging
-import tempfile
 
 app = Flask(__name__)
 
@@ -159,8 +160,16 @@ def close_db(error):
         g.db.close()
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('port', type=int, nargs='?', default=80,
+                        help='port number, defaults to 80')
+    parser.add_argument('host', type=str, nargs='?', default='localhost',
+                        help='host ip, defaults to localhost')
+    args = parser.parse_args()
+
     logging.basicConfig(format='%(asctime)-15s %(levelname)s %(message)s',
                         level=logging.DEBUG)
     controller = Controller()
     tempfile.tempdir = 'runtime/temp/'
-    app.run(host='localhost', port=80, threaded=True, debug=True)
+
+    app.run(host=args.host, port=args.port, threaded=True, debug=True)
